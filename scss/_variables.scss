@@ -1,0 +1,127 @@
+//=================DEFAULTS
+
+$maincolor: #00aeff;
+$bezier: cubic-bezier(0.4, 0.56, 0.68, 1.25);
+$letter-spacing: 0.15em;
+
+
+//================HELPER MIXINS
+
+@mixin pseudo($display: block, $pos: false, $content: ''){
+    content: $content;
+    display: $display;
+	@if $pos { position: $pos; }
+}
+@mixin pseudo-bg($color: $darkturquoise){
+	@include pseudo;
+	background-color: $color;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	opacity: 0;
+	transition: opacity 0.15s ease-out;
+}
+@mixin push--auto($width:false) {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+	@if $width { max-width: $width; }
+}
+@mixin visuallyhide {
+	position: absolute;
+	left: -10000px;
+	opacity: 0;
+}
+@mixin font-main($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: "jaf-domus", Helvetica, Arial, sans-serif;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+@mixin linearGradient($top, $bottom){
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+}
+
+@mixin radialGradient($center, $end){
+	background: $center; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  $center 25%, $end 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover,  $center 25%,$end 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center,  $center 25%,$end 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$center, endColorstr=$end,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/*RESPONSIVE FONT*/
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+  
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+  
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+    
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+  
+  @if $fallback {
+    font-size: $fallback;
+  }
+  
+  font-size: $responsive;
+}

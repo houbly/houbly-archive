@@ -1,0 +1,55 @@
+<section class="full-section">
+	<div class="center-push">
+	
+<!--			<h1 class="page-title" ng-bind-html="project.title.rendered | trustHtml"></h1>-->
+			<div class="project-meta">
+			<div class="back">
+				<a ui-sref="work" class="btn-link">
+					<svg class="icon-inline" viewBox="0 0 32 32">
+						<g stroke="currentColor" fill="none" stroke-width="1.25" stroke-linejoin="round" stroke-linecap="round">
+							<line x1="2" x2="30" y1="16" y2="16"></line>
+							<path d="M12,6 2,16 12,26"></path>
+						</g>
+					</svg>
+				</a>
+			</div>
+				<div class="project-single-date">
+				<h6><strong>Date</strong></h6>
+				<svg class="icon-inline"><use xlink:href="#icon-calendar"></use></svg>{{ project.acf.project_date }}</div>
+				<div class="project-link" ng-if="project.acf.external_link">
+				<h6><strong>Website link</strong></h6>
+					<a href="{{ project.acf.external_link }}" target="_blank"><svg class="icon-inline"><use xlink:href="#icon-new-window"></use></svg>{{ project.acf.external_link }}</a>
+				</div>
+			</div>
+		</div>
+		
+</section>
+<div class="project-logo" style="background-color: {{project.acf.color_theme}}" ng-if="project.acf.project_logo">
+	<img src="{{project.acf.project_logo}}" alt="{{project.title.rendered}} Logo">
+</div>
+<section class="full-section project-single">
+	<div class="center-push">
+		<div class="project-single-content">
+			
+			<div class="project-description" ng-bind-html="project.acf.project_description | trustHtml"></div>
+		</div>
+	</div>
+	<div class="mocks" ng-if="project.acf.phone_image || project.acf.desktop_image">
+		<div class="mocks-container">
+			<div class="phone-mock" ng-if="project.acf.phone_image">
+				<div class="phone-screen" style="background-image: url({{project.acf.phone_image}})"></div>
+			</div>
+			<div class="desktop-mock" ng-if="project.acf.desktop_image">
+				<div class="desktop-screen" style="background-image: url({{project.acf.desktop_image}})"></div>
+				<div class="desktop-base"></div>
+			</div>
+		</div>
+	</div>
+<!--
+	<div class="center-push">
+		<div class="project-single-content">
+			<div ng-bind-html="project.content.rendered | trustHtml"></div>
+		</div>
+	</div>
+-->
+</section>

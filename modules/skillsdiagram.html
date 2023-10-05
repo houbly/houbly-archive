@@ -1,0 +1,84 @@
+<div class="skills-section">
+        <h3 class="section-title">Tech stuff</h3>
+			
+		  <ul class="skills-tabs">
+		  	<li ng-class="{ active: isSet(1) }"><a href="" ng-click="setTab(1); setGraph('general')">General</a></li>
+			<li ng-class="{ active: isSet(2) }"><a href="" ng-click="setTab(2); setGraph('interaction')"><svg><use xlink:href="#icon-mouse"></use></svg>Interaction Design</a></li>
+			<li ng-class="{ active: isSet(3) }"><a href="" ng-click="setTab(3); setGraph('webdev')"><svg><use xlink:href="#icon-code"></use></svg>Web Development</a></li>
+			<li ng-class="{ active: isSet(4) }"><a href="" ng-click="setTab(4); setGraph('visual')"><svg><use xlink:href="#icon-vis-pencil"></use></svg>Visual Design</a></li>
+		  </ul>
+     <div class="skills-content">
+      <div class="skills-diagram">
+          <div class="skills-labels">
+           <ul class="general" ng-class="{ active: isSet(1) }" ng-show="isSet(1)">
+           	<li data-percentage="87">Front-End</li>
+           	<li data-percentage="76">Graphic Design</li>
+           	<li data-percentage="65">UX Design</li>
+           </ul>
+            <ul class="interaction" ng-class="{ active: isSet(2) }" ng-show="isSet(2)"> <!-- Interaction Design  -->
+              <li data-percentage="92">CSS Animation</li>
+              <li data-percentage="73">Adobe XD</li>
+              <li data-percentage="45">Sketch</li>
+            </ul>
+            <ul class="webdev" ng-class="{ active: isSet(3) }" ng-show="isSet(3)"> <!-- Dev  -->
+              <li data-percentage="79">React</li>
+              <li data-percentage="80">Sass/SCSS</li>
+              <li data-percentage="95">HTML/CSS</li>
+            </ul>
+            <ul class="visual" ng-class="{ active: isSet(4) }" ng-show="isSet(4)">   <!-- Visual design -->
+              <li data-percentage="72">Branding</li>
+              <li data-percentage="75">Illustration</li>
+              <li data-percentage="89">UI Design</li>
+            </ul>
+          </div>
+          <svg viewBox="0 0 866.9 500.7">
+                  <title>Skills Diagram</title>
+                  <g>
+                    <g id="diagram">
+                      <polygon points="433.3 28.8 624.3 140.2 624.8 361.1 433.1 472.8 241.1 361.4 240.6 139.5" fill="none" stroke="currentColor" stroke-width="2"/>
+                      <polygon id="data" points="433.4 250.4 433.4 250.4 433.4 250.4 433.4 250.4 433.4 250.4 433.4 250.4 " fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="8.11"/>
+                      <g id="axis" fill="none" stroke="currentColor" stroke-width="2">
+                        <line id="axis_6" data-name="axis 6" x1="433.3" y1="250.5" x2="433.2" y2="500.5"/>
+                        <line id="axis_5" data-name="axis 5" x1="866.8" y1="500.5" x2="433.3" y2="250.5"/>
+                        <line id="axis_4" data-name="axis 4" x1="866.8" y1="0.2" x2="433.3" y2="250.5"/>
+                        <line id="axis_3" data-name="axis 3" x1="433.3" y1="250.5" x2="433.4" y2="0.5"/>
+                        <line id="axis_2" data-name="axis 2" x1="0.1" y1="0.5" x2="433.3" y2="250.5"/>
+                        <line id="axis_1" data-name="axis 1" x1="433.3" y1="250.5" x2="0.1" y2="500.5"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+          <div class="skills-labels">
+           <ul class="general" ng-class="{ active: isSet(1) }" ng-show="isSet(1)">
+           	<li data-percentage="70">UI Design</li>
+           	<li data-percentage="72">Branding</li>
+           	<li data-percentage="25">Server Side</li>
+           </ul>
+            <ul class="interaction" ng-class="{ active: isSet(2) }" ng-show="isSet(2)">
+              <li data-percentage="44">Adobe After Effects</li>
+              <li data-percentage="74">SVG Animation</li>
+              <li data-percentage="63">JS Animation</li>
+            </ul>
+            <ul class="webdev" ng-class="{ active: isSet(3) }" ng-show="isSet(3)">
+              <li data-percentage="77">UI & UX Design</li>
+              <li data-percentage="30">Server Side</li>
+              <li data-percentage="80">Accessibility</li>
+            </ul>
+            <ul class="visual" ng-class="{ active: isSet(4) }" ng-show="isSet(4)">
+              <li data-percentage="72">Print Design</li>
+              <li data-percentage="65">Icon Design</li>
+              <li data-percentage="62">Sketching</li>
+            </ul>
+          </div>
+         
+        </div>
+        <div>
+<!--
+       	<div class="skills-description" ng-show="isSet(1)">Main skills are related to interaction design, Visual Design and Web development</div>
+       	<div class="skills-description" ng-show="isSet(2)">Things that contribute most towards unique and interesting experiences when using digital products</div>
+       	<div class="skills-description" ng-show="isSet(3)">I'm not so much a programmer, but I do speak fluent HTML and CSS. I can also hold a decent conversation in Javascript. Can build stuff.</div>
+       	<div class="skills-description" ng-show="isSet(4)">I <em>love</em> designing things. From the conceptual stage right up to prototypes and mock ups</div>
+-->
+       </div>
+        </div>
+      </div>
